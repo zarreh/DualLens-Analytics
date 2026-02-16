@@ -1,0 +1,85 @@
+site_name: DualLens Analytics
+site_description: Technical documentation for the DualLens Analytics RAG-powered investment analysis platform
+site_author: Alireza
+repo_name: DualLens Analytics
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - search.highlight
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            heading_level: 2
+            docstring_style: google
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Configuration: getting-started/configuration.md
+    - Quick Start: getting-started/quickstart.md
+  - Architecture:
+    - Overview: architecture/overview.md
+    - RAG Pipeline: architecture/rag-pipeline.md
+    - Logging: architecture/logging.md
+  - API Reference:
+    - config: api/config.md
+    - data_loader: api/data_loader.md
+    - vector_store: api/vector_store.md
+    - financial: api/financial.md
+    - rag: api/rag.md
+    - evaluation: api/evaluation.md
+    - ranking: api/ranking.md
+    - report: api/report.md
+    - app: api/app.md
+    - cli: api/cli.md
+  - Development:
+    - Contributing: development/contributing.md
+    - Testing: development/testing.md

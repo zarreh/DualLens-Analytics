@@ -1,0 +1,47 @@
+# Version control
+.git
+.gitignore
+
+# Python artifacts
+__pycache__
+*.py[cod]
+*.egg-info
+dist
+build
+.eggs
+
+# Virtual environments
+.venv
+venv
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Runtime data (will be volume-mounted)
+data/
+
+# Documentation sources (not needed at runtime)
+docs/
+site/
+mkdocs.yml
+
+# Tests & dev tooling
+tests/
+.pytest_cache
+.ruff_cache
+.coverage
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# CI/CD
+.github/
+
+# Misc
+LICENSE
+notebooks/*.ipynb

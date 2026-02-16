@@ -1,0 +1,33 @@
+# ──────────────────────────────────────────────────────────────
+# DualLens Analytics – Docker Compose
+# ──────────────────────────────────────────────────────────────
+# Usage:
+#   cp .env.example .env          # fill in API_KEY
+#   docker compose up -d          # start
+#   docker compose logs -f app    # tail logs
+#   docker compose down           # stop
+# ──────────────────────────────────────────────────────────────
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: duallens-analytics
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      # Persist ChromaDB + extracted PDFs across container restarts
+      - duallens-data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+
+volumes:
+  duallens-data:

@@ -1,0 +1,54 @@
+# Hydra configuration for DualLens Analytics
+# ─────────────────────────────────────────────
+# Override any value from CLI:
+#   poetry run python -m duallens_analytics.cli llm.model=gpt-4o chunking.chunk_size=500
+
+defaults:
+  - _self_
+
+# ── LLM settings ────────────────────────────────
+llm:
+  model: gpt-4o-mini
+  temperature: 0.0
+  max_tokens: 5000
+  top_p: 0.95
+  frequency_penalty: 1.2
+
+# ── Embedding model ─────────────────────────────
+embedding:
+  model: text-embedding-ada-002
+
+# ── Document chunking ───────────────────────────
+chunking:
+  encoding_name: cl100k_base
+  chunk_size: 1000
+  chunk_overlap: 200
+
+# ── Retriever ───────────────────────────────────
+retriever:
+  search_type: similarity
+  k: 10
+
+# ── Vector store ────────────────────────────────
+vector_store:
+  collection_name: AI_Initiatives
+
+# ── Companies to analyse ───────────────────────
+companies:
+  - GOOGL
+  - MSFT
+  - IBM
+  - NVDA
+  - AMZN
+
+# ── Stock data ──────────────────────────────────
+stock:
+  period: "3y"
+
+# ── Financial metrics to display ────────────────
+financial_metrics:
+  - Market Cap
+  - P/E Ratio
+  - Dividend Yield
+  - Beta
+  - Total Revenue
