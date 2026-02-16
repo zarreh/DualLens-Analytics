@@ -51,7 +51,7 @@ make run
 poetry run streamlit run src/duallens_analytics/app.py
 ```
 
-The Streamlit app opens at [http://localhost:8501](http://localhost:8501).
+The Streamlit app opens at [http://localhost:8510](http://localhost:8510).
 
 ## Optional: Build documentation
 

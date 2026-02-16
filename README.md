@@ -115,7 +115,7 @@ OPENAI_API_BASE=https://aibe.mygreatlearning.com/openai/v1
 make run              # or: poetry run streamlit run src/duallens_analytics/app.py
 ```
 
-The app opens at [http://localhost:8501](http://localhost:8501).
+The app opens at [http://localhost:8510](http://localhost:8510).
 
 > On the **first run** the vector store is built automatically (PDFs are extracted, chunked, and embedded). Subsequent runs load the persisted store from `data/chroma_db/` instantly.
 
@@ -140,7 +140,7 @@ docker compose logs -f app # tail logs
 docker compose down        # data persists in the duallens-data volume
 ```
 
-The app is available at [http://localhost:8501](http://localhost:8501).
+The app is available at [http://localhost:8510](http://localhost:8510).
 
 To **rebuild** after code changes:
 

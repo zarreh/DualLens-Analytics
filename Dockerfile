@@ -49,13 +49,13 @@ ENV PATH="/app/.venv/bin:${PATH}" \
     VIRTUAL_ENV="/app/.venv"
 
 # Streamlit default port
-EXPOSE 8501
+EXPOSE 8510
 
 # Health check – Streamlit exposes /_stcore/health
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-    CMD curl -f http://localhost:8501/_stcore/health || exit 1
+    CMD curl -f http://localhost:8510/_stcore/health || exit 1
 
 # Run the Streamlit app
 ENTRYPOINT ["streamlit", "run", "src/duallens_analytics/app.py", \
-            "--server.port=8501", \
+            "--server.port=8510", \
             "--server.address=0.0.0.0"]
