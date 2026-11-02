@@ -16,7 +16,7 @@ services:
     container_name: duallens-analytics
     restart: unless-stopped
     ports:
-      - "8510:8510"
+      - "127.0.0.1:8510:8510"
     env_file:
       - .env
     volumes:
