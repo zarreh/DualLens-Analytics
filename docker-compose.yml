@@ -23,7 +23,7 @@ services:
       # Persist ChromaDB + extracted PDFs across container restarts
       - duallens-data:/app/data
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8510/_stcore/health"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8510/_stcore/health', timeout=3)"]
       interval: 30s
       timeout: 5s
       start_period: 15s
